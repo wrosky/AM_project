@@ -3,7 +3,8 @@
 
 {% block content %}
 
-<h1>Home Template</h1>
+<center><h1>Feed</h1></center>
+<center></center>
 
 <div>
 
@@ -11,7 +12,10 @@
         {% for room in rooms %}
         
         <div>
-            <h5>{{room.id}} -- <a href="{% url 'room' room.id %}">{{room.name}}</a></h5>
+            <center><span>@{{room.host.username}}</span></center>
+            <center>{{room.id}} -- <a style="text-decoration:none" href="{% url 'room' room.id %}">{{room.name}}</a></h5></center><h5>
+            <center><small>{{room.topic.name}}</small></center>
+            <hr style="height:2px;border-width:0;color:lightslategray;background-color:lightslategray">
         </div>
 
         {% endfor %}
