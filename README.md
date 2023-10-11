@@ -1,1 +1,1 @@
-# Technical SUpport Departament
+# Technical Support Departament
