@@ -4,14 +4,20 @@
 {% block content %}
 
 <center><h1>Feed</h1></center>
-<center></center>
+<hr style="height:2px;border-width:0;color:lightslategray;background-color:lightslategray">
 
 <div>
 
+    <center><a href="{% url 'create-room' %}">Create form</a></center>
+    <hr style="height:2px;border-width:0;color:lightslategray;background-color:lightslategray">
+
     <div>
+
         {% for room in rooms %}
         
         <div>
+            <a href="{% url 'update-room' room.id %}">Edit</a>
+            <a href="{% url 'update-room' room.id %}">Delete</a>
             <center><span>@{{room.host.username}}</span></center>
             <center>{{room.id}} -- <a style="text-decoration:none" href="{% url 'room' room.id %}">{{room.name}}</a></h5></center><h5>
             <center><small>{{room.topic.name}}</small></center>
@@ -19,6 +25,7 @@
         </div>
 
         {% endfor %}
+
     </div>
 
 </div>
