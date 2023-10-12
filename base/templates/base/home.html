@@ -3,28 +3,53 @@
 
 {% block content %}
 
-<center><h1>Feed</h1></center>
-<hr style="height:2px;border-width:0;color:lightslategray;background-color:lightslategray">
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+</style>
 
-<div>
-
-    <center><a href="{% url 'create-room' %}">Create form</a></center>
-    <hr style="height:2px;border-width:0;color:lightslategray;background-color:lightslategray">
+<div class="home-container">
 
     <div>
 
-        {% for room in rooms %}
-        
+        <h3>Browse Topics</h3>
+
         <div>
-            <a href="{% url 'update-room' room.id %}">Edit</a>
-            <a href="{% url 'delete-room' room.id %}">Delete</a>
-            <center><span>@{{room.host.username}}</span></center>
-            <center>{{room.id}} -- <a style="text-decoration:none" href="{% url 'room' room.id %}">{{room.name}}</a></h5></center><h5>
-            <center><small>{{room.topic.name}}</small></center>
-            <hr style="height:2px;border-width:0;color:lightslategray;background-color:lightslategray">
+            <a href="{% url 'home' %}">All</a>
         </div>
 
+        {% for topic in topics %}
+        <div>
+            <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
+        </div>
         {% endfor %}
+
+    </div>
+
+    <div>
+
+        <h5>{{room_count}} rooms available</h5>
+        <center><a href="{% url 'create-room' %}">Create form</a></center>
+        <hr style="height:2px;border-width:0;color:lightslategray;background-color:lightslategray">
+
+        <div>
+
+            {% for room in rooms %}
+            
+            <div>
+                <a href="{% url 'update-room' room.id %}">Edit</a>
+                <a href="{% url 'delete-room' room.id %}">Delete</a>
+                <center><span>@{{room.host.username}}</span></center>
+                <center>{{room.id}} -- <a style="text-decoration:none" href="{% url 'room' room.id %}">{{room.name}}</a></h5></center><h5>
+                <center><small>{{room.topic.name}}</small></center>
+                <hr style="height:2px;border-width:0;color:lightslategray;background-color:lightslategray">
+            </div>
+
+            {% endfor %}
+
+        </div>
 
     </div>
 
