@@ -20,20 +20,18 @@
 
     <div>
 
-            <h5>{{room_count}} rooms available</h5>
-            <center><a href="{% url 'create-room' %}">Create form</a></center>
-            <hr style="height:2px;border-width:0;color:lightslategray;background-color:lightslategray">
+        <h5>{{room_count}} rooms available</h5>
+        <center><a href="{% url 'create-room' %}">Create form</a></center>
+        <hr style="height:2px;border-width:0;color:lightslategray;background-color:lightslategray">
 
-        <div>
-
-                {% include 'base/feed_component.html' %}
-
-        </div>
+        {% include 'base/feed_component.html' %}
 
     </div>
 
     <div>
+
         {% include 'base/activity_component.html' %}
+        
     </div>
 
 </div>
