@@ -9,7 +9,7 @@
 
             {% endif %}
 
-            <a href="{% url 'user-profile' room.host.id %}">@{{room.host.username}}</a>
+            <a href="{% url 'user-profile' room.id %}">@{{room.host.username}}</a>
             <center>{{room.id}} -- <a style="text-decoration:none" href="{% url 'room' room.id %}">{{room.name}}</a></center>
             <center><small>{{room.topic.name}}</small></center>
             <hr style="height:2px;border-width:0;color:lightslategray;background-color:lightslategray">
